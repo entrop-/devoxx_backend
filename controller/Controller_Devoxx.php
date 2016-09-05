@@ -8,4 +8,35 @@
  */
 class Controller_Devoxx {
 
+    public function __construct(){
+        $this->db = new Database();
+
+    }
+
+    private $beacon_images = [
+        'yellow' => GLOBAL_PATH.IMAGE_PATH.'image1.jpg',
+        'pink' => GLOBAL_PATH.IMAGE_PATH.'image2.jpg',
+        'maroon' => GLOBAL_PATH.IMAGE_PATH.'image3.jpg',
+        'cyan' => GLOBAL_PATH.IMAGE_PATH.'image4.jpg',
+        'yelldow' => GLOBAL_PATH.IMAGE_PATH.'image5.jpg',
+        'yellosw' => GLOBAL_PATH.IMAGE_PATH.'image6.jpg',
+    ];
+
+    private function serialize($array){
+        if (empty($array) )
+            $array = $this->beacon_images;
+
+        return json_encode($array);
+    }
+
+    public function getBeacons(){
+
+        //takes last 6 because im too lazy to create sessions
+        $sql = 'SELECT DISTINCT(color),image FROM beacons WHERE 1 LIMIT 6 ORDER BY id DESC';
+        //todo: db query
+        return $this->serialize($result);
+    }
+
+
+
 }
