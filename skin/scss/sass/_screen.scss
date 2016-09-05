@@ -4,5 +4,15 @@
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
 @import "compass/reset";
+@import "compass/css3";
 
+.hidden { display: none; }
+.cf:after {  content: "";  display: table;  clear: both;  }
 
+section.set-beacon {
+    ul { display: flex;
+        li { box-sizing: border-box; flex: 1;
+            a { display: block; }
+        }
+    }
+}
