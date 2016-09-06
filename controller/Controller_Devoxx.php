@@ -26,7 +26,7 @@ class Controller_Devoxx {
         if (empty($array) )
             $array = $this->beacon_images;
 
-        return json_encode($array);
+        return json_encode($array,JSON_UNESCAPED_SLASHES);
     }
 
     public function getBeacons(){
@@ -41,7 +41,7 @@ class Controller_Devoxx {
         $response = [];
 
         while($result = $q->fetch(PDO::FETCH_ASSOC)){
-            $response[$result['color']]= $result['image'];
+            $response[] = array('id'=> $result['color'], 'url' => GLOBAL_PATH.IMAGE_PATH.$result['image']);
         }
 
         return $this->serialize($response);
