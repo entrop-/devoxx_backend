@@ -9,7 +9,7 @@
 class Controller_Devoxx {
 
     public function __construct(){
-        $this->db = new Database();
+
 
     }
 
@@ -32,9 +32,19 @@ class Controller_Devoxx {
     public function getBeacons(){
 
         //takes last 6 because im too lazy to create sessions
-        $sql = 'SELECT DISTINCT(color),image FROM beacons WHERE 1 LIMIT 6 ORDER BY id DESC';
-        //todo: db query
-        return $this->serialize($result);
+        $sql = StructureFactory::getFactory()->pdo();
+        $query = 'SELECT DISTINCT(color),image FROM beacons ORDER BY id DESC LIMIT 6';
+
+        $q = $sql->prepare($query);
+        $q->execute();
+
+        $response = [];
+
+        while($result = $q->fetch(PDO::FETCH_ASSOC)){
+            $response[$result['color']]= $result['image'];
+        }
+
+        return $this->serialize($response);
     }
 
 

@@ -1,3 +1,5 @@
-<?php $devoxx = new Controller_Devoxx();
+<?php
 
-$devoxx->getBeacons();
+$devoxx = new Controller_Devoxx();
+
+echo $devoxx->getBeacons();
