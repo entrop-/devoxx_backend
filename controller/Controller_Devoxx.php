@@ -33,7 +33,7 @@ class Controller_Devoxx {
 
         //takes last 6 because im too lazy to create sessions
         $sql = StructureFactory::getFactory()->pdo();
-        $query = 'SELECT DISTINCT(color),image FROM beacons ORDER BY id DESC LIMIT 6';
+        $query = 'SELECT m1.* FROM beacons m1 LEFT JOIN beacons m2 ON (m1.color = m2.color AND m1.id < m2.id) WHERE m2.id IS NULL;';
 
         $q = $sql->prepare($query);
         $q->execute();
@@ -46,7 +46,5 @@ class Controller_Devoxx {
 
         return $this->serialize($response);
     }
-
-
 
 }

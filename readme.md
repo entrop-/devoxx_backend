@@ -7,3 +7,5 @@ you you want to retrieve json, make GET with any "token" param<br>
 like `?token=1`<br>
 (note: no matter of value, will return last 6 results every time)  
 
+### CONFIG
+remove "_example" from file name and insert proper values where needed
