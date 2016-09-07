@@ -3,24 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Devoxx4Kids</title>
-    <link rel="stylesheet" href="../stylesheets/core.css">
+    <link rel="stylesheet" href="skin/stylesheets/core.css">
 
 </head>
 <body>
-    <section class="set-beacon">
+    <?php $devox = new Controller_Devoxx(); ?>
+    <section class="set-beacon hidden">
         <ul>
-            <li><a href="#"><img src="" alt=""></a></li>
-            <li><a href=""><img src="" alt=""></a></li>
-            <li><a href=""><img src="" alt=""></a></li>
-            <li><a href=""><img src="" alt=""></a></li>
-            <li><a href=""><img src="" alt=""></a></li>
-            <li><a href=""><img src="" alt=""></a></li>
+
         </ul>
     </section>
-    <section class="set-image hidden">
-
+    <section class="set-image">
+        <ul>
+            <?php $files = $devox->getImages(); ?>
+            <?php foreach ($files as $filename): ?>
+                <li><a href="#"><img src="<?php echo $filename ?> " alt=""></a></li>
+            <?php endforeach; ?>
+        </ul>
     </section>
-
-    <script src="../js/main.js"></script>
+    <section class="hidden">
+        <p class="finish"><a href="<?php echo GLOBAL_PATH; ?>">Kolejny</a></p>
+    </section>
+    <script src="skin/js/main.js"></script>
+    <script>
+        DEVOX.nextStep();
+    </script>
 </body>
 </html>

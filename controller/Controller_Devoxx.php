@@ -47,4 +47,13 @@ class Controller_Devoxx {
         return $this->serialize($response);
     }
 
+    public function getImages(){
+        $files = [];
+
+        foreach (glob("skin/images/*.png") as $filename) {
+            $files[]= $filename;
+        }
+        return $files;
+    }
+
 }

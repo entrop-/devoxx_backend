@@ -9,10 +9,22 @@
 .hidden { display: none; }
 .cf:after {  content: "";  display: table;  clear: both;  }
 
-section.set-beacon {
-    ul { display: flex;
-        li { box-sizing: border-box; flex: 1;
-            a { display: block; }
+section {
+    ul { display: flex; list-style-type: none; flex-wrap: wrap;
+        li { box-sizing: border-box; flex: 1; padding: 1px;
+            &:hover { border: 1px solid greenyellow; padding: 0; box-shadow: 0px 0px 10px green; background: #fafafa;}
+            a { display: block; text-align: center;
+                &:hover {padding: 0;}
+            }
+        }
+    }
+    &.set-image {
+        ul {
+            li {
+                a {
+                    img { max-width: 500px; max-height: 500px;}
+                }
+            }
         }
     }
 }
