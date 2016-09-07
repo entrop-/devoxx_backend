@@ -23,11 +23,11 @@
             <?php endforeach; ?>
         </ul>
     </section>
-    <section class="hidden">
+    <section class="set-form hidden">
         <form action="<?php echo GLOBAL_PATH ?>" method="post">
             <input type="text" value="" hidden name="color" id="input_color">
             <input type="text" value="" hidden name="url" id="input_url">
-            <button type="submit"><img src="skin/image/app/Button-Reload-icon.png" alt=""></button>
+            <button type="submit"><img src="skin/images/app/Button-Reload-icon.png" alt=""></button>
         </form>
     </section>
 

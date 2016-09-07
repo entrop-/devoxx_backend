@@ -28,4 +28,7 @@ section {
         }
     }
     &.set-beacon ul li a img { max-width: 100%; }
+    &.set-form { position: absolute;  width: 100%;  text-align: center;  height: 100%;
+        button {border: 0;  background: none;  position: absolute;  top: 50%;  text-align: center;  transform: translate(-50%,-50%);}
+    }
 }

@@ -1,7 +1,7 @@
 <?php
 
-error_reporting(-1);
-ini_set('display_errors', 'On');
+//error_reporting(-1);
+//ini_set('display_errors', 'On');
 
 
 require_once 'config.php';
@@ -17,7 +17,7 @@ if ($_GET['token']){
     if($_POST){
         //not so secure
         $data[] = $_POST['color'];
-        $data[] = GLOBAL_PATH.IMAGE_PATH.$_POST['url'];
+        $data[] = $_POST['url'];
         $devox = new Controller_Devoxx;
         $devox->sendForm($data);
 
