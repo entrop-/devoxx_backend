@@ -13,20 +13,17 @@ class Controller_Devoxx {
 
     }
 
-    private $beacon_images = [
-        'yellow' => GLOBAL_PATH.IMAGE_PATH.'image1.jpg',
-        'pink' => GLOBAL_PATH.IMAGE_PATH.'image2.jpg',
-        'maroon' => GLOBAL_PATH.IMAGE_PATH.'image3.jpg',
-        'cyan' => GLOBAL_PATH.IMAGE_PATH.'image4.jpg',
-        'yelldow' => GLOBAL_PATH.IMAGE_PATH.'image5.jpg',
-        'yellosw' => GLOBAL_PATH.IMAGE_PATH.'image6.jpg',
+    private $beacon_names = [
+        'beetroot','ice','lemon','blueberry','mint','candy'
     ];
 
-    private function serialize($array){
-        if (empty($array) )
-            $array = $this->beacon_images;
 
+    private function serialize($array){
         return json_encode($array,JSON_UNESCAPED_SLASHES);
+    }
+
+    public function getBeconNames(){
+        return $this->beacon_names;
     }
 
     public function getBeacons(){
@@ -41,7 +38,7 @@ class Controller_Devoxx {
         $response = [];
 
         while($result = $q->fetch(PDO::FETCH_ASSOC)){
-            $response[] = array('id'=> $result['color'], 'url' => GLOBAL_PATH.IMAGE_PATH.$result['image']);
+            $response[] = array('id'=> $result['color'], 'url' => $result['image']);
         }
 
         return $this->serialize($response);
@@ -54,6 +51,19 @@ class Controller_Devoxx {
             $files[]= $filename;
         }
         return $files;
+    }
+
+    public function sendForm($array){
+        $sql = StructureFactory::getFactory()->pdo();
+        $query = 'INSERT INTO beacons VALUES("",?,?);';
+
+        $q = $sql->prepare($query);
+        $q->bindParam(1, $array[0]);
+        $q->bindParam(2, $array[1]);
+
+        $q->execute();
+
+
     }
 
 }

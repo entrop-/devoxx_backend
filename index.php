@@ -14,7 +14,14 @@ if ($_GET['token']){
 
     include 'skin/view/response.php';
 } else {
+    if($_POST){
+        //not so secure
+        $data[] = $_POST['color'];
+        $data[] = GLOBAL_PATH.IMAGE_PATH.$_POST['url'];
+        $devox = new Controller_Devoxx;
+        $devox->sendForm($data);
 
+    }
     include 'skin/view/index.php';
 
 }

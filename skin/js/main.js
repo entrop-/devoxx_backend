@@ -11,10 +11,27 @@ var DEVOX = (function () {
 
                 linkElements[i].addEventListener("click", function(e){
                     e.preventDefault();
-
                     var parentSection = DEVOX.findAncestor(e.target,'SECTION');
+
+                    //fill inputs
+                    var colorInput = document.getElementById('input_color');
+                    var urlInput = document.getElementById('input_url');
+
+
+
+                    if (parentSection.classList.contains('set-beacon')) {
+                        colorInput.value = this.className;
+                    }
+
+                    if (parentSection.classList.contains('set-image')) {
+                        urlInput.value = this.href;
+                    }
+
+                    //change view
                     parentSection.className += " hidden";
                     parentSection.nextElementSibling.classList.remove("hidden");
+
+
 
                 });
             }
