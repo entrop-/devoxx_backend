@@ -17,8 +17,6 @@ var DEVOX = (function () {
                     var colorInput = document.getElementById('input_color');
                     var urlInput = document.getElementById('input_url');
 
-
-
                     if (parentSection.classList.contains('set-beacon')) {
                         colorInput.value = this.className;
                     }
@@ -32,16 +30,8 @@ var DEVOX = (function () {
                     parentSection.nextElementSibling.classList.remove("hidden");
                     parentSection.nextElementSibling.classList.add(this.className);
 
-
-
                 });
             }
-
-        },
-        getUnusedPictures : function () {
-            //todo:ajax call to db
-        },
-        submitForm : function() {
 
         },
         findAncestor : function  (el, tag) {
