@@ -1,0 +1,16 @@
+/* Glow */
+@mixin content($color-default, $color-main) {
+	background: $color-default;
+	color: $color-main;
+}
+@mixin glow {
+	@include hacks();
+	@include prefixed(transition-duration, $mediumDuration);
+	@include prefixed(transition-property, box-shadow);
+
+	&:hover,
+	&:focus,
+	&:active {
+		box-shadow: 0 0 $shadowSize $shadowColor;
+	}
+}

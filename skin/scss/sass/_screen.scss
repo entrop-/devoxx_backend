@@ -3,31 +3,36 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
-@import "compass/reset";
-@import "compass/css3";
+
 
 .hidden { display: none; }
 .cf:after {  content: "";  display: table;  clear: both;  }
 
+$shadowColor: gold;
+$shadowSize: 300px;
+
 section {
     ul { display: flex; list-style-type: none; flex-wrap: wrap;
         li { box-sizing: border-box; flex: 1; padding: 1px;
-            &:hover { border: 1px solid greenyellow; padding: 0; box-shadow: 0px 0px 10px green; background: #fafafa;}
-            a { display: block; text-align: center;
-                &:hover {padding: 0;}
-            }
+            a { display: block; text-align: center; }
         }
     }
     &.set-image {
-        ul {
-            li {
-                a {
-                    img { max-width: 500px; max-height: 500px;}
-                }
-            }
+        //&.lemon {$shadowColor: gold;}
+        //&.ice {$shadowColor: blue;}
+        //&.reetbeer {$shadowColor: maroon;}
+        //&.candy {$shadowColor: gold;}
+        //&.blueberry {$shadowColor: teal;}
+        //&.mint {$shadowColor: #a7ba33;}
+        ul li {
+            a { @include glow(); border-radius: 60%; transition-property: box-shadow, background-color;
+                &:hover { background-color: rgba($shadowColor,0.44) }
+                img { max-width: 500px; max-height: 500px; @include wobble-vertical();}}
         }
     }
-    &.set-beacon ul li a img { max-width: 100%; }
+    &.set-beacon ul li a { @include pulse-grow();
+        img { max-width: 100%; }
+    }
     &.set-form { position: absolute;  width: 100%;  text-align: center;  height: 100%;
         button {border: 0;  background: none;  position: absolute;  top: 50%;  text-align: center;  transform: translate(-50%,-50%);}
     }

@@ -30,6 +30,7 @@ var DEVOX = (function () {
                     //change view
                     parentSection.className += " hidden";
                     parentSection.nextElementSibling.classList.remove("hidden");
+                    parentSection.nextElementSibling.classList.add(this.className);
 
 
 
