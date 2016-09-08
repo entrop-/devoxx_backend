@@ -10,7 +10,7 @@
     <?php $devox = new Controller_Devoxx(); ?>
     <section class="set-beacon ">
         <ul>
-            <?php foreach ($devox->getBeconNames() as $name): ?>
+            <?php foreach ($devox->getBeaconNames() as $name): ?>
                 <li><a href="#" class="<?php echo $name ?>"><img src="skin/images/app/<?php echo $name ?>.png" alt="<?php echo $name ?>"></a></li>
             <?php endforeach; ?>
         </ul>

@@ -9,24 +9,6 @@
 class Controller_Devoxx
 {
 
-    private $mime = array(
-        'css' => 'text/css',
-        'js' => 'text/javascript',
-        'json' => 'application/json',
-        'png' => 'image/png',
-        'jpg' => 'image/jpeg',
-        'gif' => 'image/gif',
-        'htm' => 'text/html',
-        'html' => 'text/html',
-        'txt' => 'text/plain',
-        'pdf' => 'application/pdf',
-        'ttf' => 'application/octet-stream',
-        'svg' => 'image/svg+xml',
-        'eot' => 'application/vnd.ms-fontobject',
-        'woff' => 'application/font-woff',
-        'woff2' => 'application/font-woff2',
-    );
-
     public function __construct()
     {
 
@@ -43,7 +25,7 @@ class Controller_Devoxx
         return json_encode($array, JSON_UNESCAPED_SLASHES);
     }
 
-    public function getBeconNames()
+    public function getBeaconNames()
     {
         return $this->beacon_names;
     }
